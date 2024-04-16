@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Access Count</title>
+<style>
+body {
+font-family: 'Roboto', sans-serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+padding: 0 20px;
+box-sizing: border-box;
+margin: 0;
+background-color: #f5f5f5;
+}
+h1 {
+font-size: 3rem;
+color: #333;
+margin-bottom: 20px;
+}
+#pageAccessCountDisplay {
+font-size: 2rem;
+
+color: #333;
+margin-top: 0;
+}
+</style>
+</head>
+<body>
+<div>
+<h1>Page Access Count</h1>
+<p id="pageAccessCountDisplay"></p>
+</div>
+<script>
+let pageAccessCount = localStorage.getItem('pageAccessCount');
+if (!pageAccessCount) {
+pageAccessCount = 1;
+} else {
+pageAccessCount = parseInt(pageAccessCount, 10);
+pageAccessCount++;
+}
+localStorage.setItem('pageAccessCount', pageAccessCount);
+document.getElementById('pageAccessCountDisplay').innerText = `Page Access
+Count: ${pageAccessCount}`;
+</script>
+</body>
+</html>

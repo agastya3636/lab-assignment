@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YOUR SHOPPING MARKET</title>
+<link
+href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display
+=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Roboto', sans-serif;
+margin: 20px;
+background-color: #f5f5f5;
+}
+h1 {
+color: #2ad41e;
+font-size: 3rem;
+text-align: center;
+margin-bottom: 30px;
+}
+form {
+background-color: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+label {
+display: block;
+margin-bottom: 10px;
+font-weight: 500;
+}
+input, select {
+display: block;
+width: 100%;
+padding: 10px;
+border-radius: 5px;
+
+border: 1px solid #ccc;
+margin-bottom: 20px;
+}
+button {
+background-color: #2ad41e;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+font-weight: 500;
+}
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 30px;
+}
+th, td {
+border: 1px solid #06ec3cbc;
+padding: 12px;
+text-align: left;
+}
+th {
+background-color: #2ad41e;
+color: #fff;
+font-weight: 500;
+}
+</style>
+</head>
+<body>
+<h1>YOUR SHOPPING MARKET</h1>
+<form id="itemForm">
+<label for="itemName">Item Name:</label>
+<input type="text" id="itemName" placeholder="Enter item name">
+<label for="itemQuantity">Quantity:</label>
+<input type="number" id="itemQuantity" placeholder="1" value="1">
+<label for="itemPriority">Priority:</label>
+<select id="itemPriority">
+<option value="low">Low</option>
+<option value="medium">Medium</option>
+
+<option value="high">High</option>
+</select>
+<label for="storeName">Store Name:</label>
+<input type="text" id="storeName" placeholder="Enter store name">
+<label for="storeSection">Store Section:</label>
+<input type="text" id="storeSection" placeholder="Enter store
+section">
+<label for="itemPrice">Price:</label>
+<input type="number" id="itemPrice" placeholder="Enter price">
+<button type="button" onclick="addItem()">Add Item</button>
+</form>
+<table id="itemList">
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+<th>Store</th>
+<th>Section</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<!-- Table content will go here -->
+</tbody>
+</table>
+<script>
+function addItem() {
+var itemName = document.getElementById("itemName").value;
+var itemQuantity = document.getElementById("itemQuantity").value;
+var itemPriority = document.getElementById("itemPriority").value;
+var storeName = document.getElementById("storeName").value;
+var storeSection = document.getElementById("storeSection").value;
+var itemPrice = document.getElementById("itemPrice").value;
+saveItemToLocalStorage(itemName, itemQuantity, itemPriority,
+storeName, storeSection, itemPrice);
+addRowToTable(itemName, itemQuantity, storeName, storeSection,
+itemPrice);
+}
+function saveItemToLocalStorage(name, quantity, priority, store,
+section, price) {
+
+var items = JSON.parse(localStorage.getItem('shoppingList')) ||
+[];
+items.push({
+name: name,
+quantity: quantity,
+priority: priority,
+store: store,
+section: section,
+price: price
+});
+localStorage.setItem('shoppingList', JSON.stringify(items));
+}
+function addRowToTable(name, quantity, store, section, price) {
+var table =
+document.getElementById("itemList").getElementsByTagName('tbody')[0];
+var newRow = table.insertRow(table.rows.length);
+var cell1 = newRow.insertCell(0);
+var cell2 = newRow.insertCell(1);
+var cell3 = newRow.insertCell(2);
+var cell4 = newRow.insertCell(3);
+var cell5 = newRow.insertCell(4);
+cell1.innerHTML = name;
+cell2.innerHTML = quantity;
+cell3.innerHTML = store;
+cell4.innerHTML = section;
+cell5.innerHTML = price;
+}
+window.onload = function () {
+var storedItems = JSON.parse(localStorage.getItem('shoppingList'))
+|| [];
+for (var i = 0; i < storedItems.length; i++) {
+addRowToTable(storedItems[i].name, storedItems[i].quantity,
+storedItems[i].store, storedItems[i].section, storedItems[i].price);
+}
+};
+</script>
+</body>
+</html>
