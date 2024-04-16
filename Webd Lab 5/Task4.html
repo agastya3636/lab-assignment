@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Rows to Table</title>
+</head>
+<body>
+<table id="myTable">
+<thead>
+<tr>
+<th>Row</th>
+<th>Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+</tr>
+
+</tbody>
+</table>
+<button onclick="addRow()">Add Row</button>
+<script>
+function addRow() {
+var table =
+document.getElementById("myTable").getElementsByTagName('tbody')[0];
+var rows = table.getElementsByTagName("tr");
+var lastRow = rows[rows.length - 1];
+var prevRow = lastRow.previousElementSibling;
+// Check if the previous row is the table header
+if (prevRow.tagName !== "TR") {
+prevRow = lastRow;
+}
+var sum = parseInt(lastRow.lastElementChild.innerText) +
+parseInt(prevRow.lastElementChild.innerText);
+var newRow = document.createElement("tr");
+var rowNumber = rows.length + 1;
+newRow.innerHTML = "<td>" + rowNumber + "</td><td>" + sum +
+"</td>";
+table.appendChild(newRow);
+}
+</script>
+</body>
+</html>

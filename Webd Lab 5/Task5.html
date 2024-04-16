@@ -1,1 +1,47 @@
-Task
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+</head>
+<body>
+<input type="text" id="input1">
+<input type="text" id="input2"><br>
+<button onclick="calculate('+')">+</button>
+<button onclick="calculate('-')">-</button>
+<button onclick="calculate('')"></button>
+<button onclick="calculate('/')">/</button><br>
+<div id="result"></div>
+<script>
+function calculate(operator) {
+var input1 = Number.parseInt(document.getElementById("input1").value);
+var input2 = Number.parseInt(document.getElementById("input2").value);
+var result;
+switch (operator) {
+case '+':
+result = input1 + input2;
+break;
+
+case '-':
+result = input1 - input2;
+break;
+case '*':
+result = input1 * input2;
+break;
+case '/':
+if (input2 !== 0) {
+result = input1 / input2;
+} else {
+result = "Error: Division by zero";
+}
+break;
+default:
+result = "Error: Invalid operator";
+break;
+}
+document.getElementById("result").textContent = "Result: " + result;
+}
+</script>
+</body>
+</html>

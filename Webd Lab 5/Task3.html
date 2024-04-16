@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Increment Counter</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+margin-top: 50px;
+}
+#countList {
+
+list-style-type: none;
+padding: 0;
+}
+#countList li {
+font-size: 16px;
+transition: font-size 0.2s;
+}
+</style>
+</head>
+<body>
+<button onclick="incrementCounter()">Increment</button>
+<ul id="countList"></ul>
+<script>
+var count = 0;
+function incrementCounter() {
+count++;
+var countList = document.getElementById("countList");
+var newItem = document.createElement("li");
+newItem.textContent = count;
+newItem.style.fontSize = count + "px";
+countList.appendChild(newItem);
+}
+</script>
+</body>
+</html>

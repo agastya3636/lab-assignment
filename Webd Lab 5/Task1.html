@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Text Change with Animation</title>
+<style>
+#text-container {
+position: relative;
+display: inline-block;
+font-size: 24px;
+transition: transform 0.5s ease-in-out;
+}
+body{
+font-family: 'Arial', sans-serif;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+#text-container.spin {
+animation: spin 1s infinite linear;
+}
+@keyframes spin {
+100% {
+transform: rotate(360deg);
+}
+}
+</style>
+</head>
+<body>
+<h2 id="text-container">Hello</h2>
+<input type="text" id="textInput">
+<button onclick="changeText()">Change Text</button>
+<script>
+function changeText() {
+var inputText = document.getElementById("textInput").value;
+var textContainer = document.getElementById("text-container");
+textContainer.textContent = inputText;
+
+textContainer.classList.add("spin");
+setTimeout(() => {
+textContainer.classList.remove("spin");
+}, 1000);
+}
+</script>
+</body>
+</html>
