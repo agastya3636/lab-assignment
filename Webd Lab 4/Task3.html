@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Content Change</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+margin: 0;
+padding: 0;
+}
+header {
+background-color: #007bff;
+color: #fff;
+padding: 10px 0;
+}
+section {
+padding: 20px;
+}
+#content1 {
+background-color: #f9f9f9;
+border: 1px solid #ccc;
+border-radius: 5px;
+
+padding: 20px;
+margin-bottom: 20px;
+}
+#content2 {
+background-color: #ffc107;
+border: 1px solid #ffc107;
+border-radius: 5px;
+padding: 20px;
+}
+#button {
+padding: 10px 20px;
+font-size: 16px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Page Header</h1>
+</header>
+<section id="main-content">
+<div id="content1">
+<h2>Main Content Section</h2>
+<p>This is the initial content of the main section.</p>
+</div>
+<button id="button">Change Content</button>
+</section>
+<script>
+document.getElementById('button').addEventListener('click', function() {
+var mainContent = document.getElementById('main-content');
+var newContent = document.createElement('div');
+newContent.id = 'content2';
+newContent.innerHTML = '<h2>New Content Section</h2><p>This is the newcontent of the main section with different styles.</p><br>';
+mainContent.appendChild(newContent);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color and Text</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+}
+#container {
+padding-top: 50px;
+}
+#content {
+background-color: #fff;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+display: inline-block;
+}
+#button {
+padding: 10px 20px;
+font-size: 16px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<div id="content">
+<h1 id="heading">Click the button</h1>
+<button id="button">Change Background Color and Text</button>
+</div>
+
+</div>
+<script>
+document.getElementById('button').addEventListener('click', function() {
+var heading = document.getElementById('heading');
+var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+document.body.style.backgroundColor = randomColor;
+heading.textContent = 'Button Clicked';
+});
+</script>
+</body>
+</html>
