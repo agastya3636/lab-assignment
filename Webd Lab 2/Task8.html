@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Jump Example</title>
+<style>
+body {
+font-family: 'Arial', sans-serif;
+margin: 0;
+
+padding: 0;
+background-color: #f4f4f4;
+line-height: 1.6;
+}
+header {
+background-color: #333;
+color: #fff;
+padding: 10px;
+text-align: center;
+}
+main {
+padding: 20px;
+}
+footer {
+background-color: #333;
+color: #fff;
+text-align: center;
+padding: 10px;
+}
+a {
+border: 2px solid rgb(59, 61, 194)k;
+background-color: rgb(59, 61, 194);
+padding: 5px;
+border-radius: 10px;
+color: white;
+text-decoration: none;
+}
+a:hover {
+text-decoration: underline;
+}
+#bottomLink {
+position: absolute;
+top: 90%; /* Adjust the position as needed */
+left: 50%;
+transform: translateX(-50%);
+}
+p{
+margin-bottom: 200px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Scroll Jump Example</h1>
+<a href="#bottomLink">Jump to Bottom</a>
+</header>
+<main>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+accumsan lectus eget odio gravida, vitae scelerisque libero volutpat. Quisque
+eget erat vel turpis euismod convallis. Nullam sit amet quam vel urna
+malesuada tristique. Fusce sodales, ex nec congue euismod, erat lacus
+efficitur purus, vel tincidunt nunc lacus vel nisi. Phasellus eu hendrerit
+elit. Suspendisse potenti.</p>
+<p>Proin auctor eleifend nisi vitae fermentum. Integer ac sem euismod,
+fermentum lectus et, ultrices velit. Curabitur tristique dui vel justo
+convallis, vel accumsan ligula ultricies. Maecenas eleifend sem eu tortor
+dignissim, vel egestas risus fermentum. Pellentesque habitant morbi tristique
+senectus et netus et malesuada fames ac turpis egestas.</p>
+<p>Nullam quis libero ut felis blandit tincidunt vel ac urna. Sed
+bibendum, mauris eget congue tempus, mauris nunc cursus dolor, in gravida mi
+velit ut elit. Vestibulum ante ipsum primis in faucibus orci luctus et
+ultrices posuere cubilia Curae; Aenean vitae venenatis mi. Ut eget libero eu
+quam vestibulum fermentum ac eu odio.</p>
+<!-- Link to jump to the bottom of the page -->
+</main>
+<footer>
+<a href="#">Back to Top</a>
+</footer>
+
+<a id="bottomLink"></a>
+</body>
+</html>
