@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@keyframes spin{
+0%{
+transform: rotate(0deg);
+}
+100%{
+transform: rotate(360deg);
+}
+}
+body {
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+margin: 0;
+}
+.card_holder{
+width: 500px;
+height: 670px;
+background:
+url("https://imgs.search.brave.com/r7H6FAiMHFSk8hqe2oZpNWunpzQArdAiKkTYmlo8gXw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9rb3R0/a2Uub3JnL3BsdXMv/bWlzYy9pbWFnZXMv/Z2Qtc3BhY2UtY2Fy/ZHMtMDEuanBn");
+background-position: cover;
+animation: spin 4s linear infinite ;
+}
+</style>
+<title>Document</title>
+</head>
+<body>
+<div class="card_holder"></div>
+</body>
+</html>
