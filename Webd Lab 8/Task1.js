@@ -17,7 +17,7 @@ setToCurrency(e.target.value);
 const convertCurrency = () => {
 const convertedValue = amount * exchangeRate;
 setConvertedAmount(convertedValue.toFixed(2));
-};
+};//rrrr
 return (
 <div>
 <h2>Currency Converter</h2>
